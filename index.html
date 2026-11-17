@@ -1,0 +1,399 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Français+ | Mon espace pour apprendre le français</title>
+<style>
+:root {
+  --purple: #A68BE0;
+  --pink: #F6A5C7;
+  --yellow: #FFD782;
+  --cream: #FFF8F3;
+  --dark: #55436D;
+  --white: #FFFFFF;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+}
+header {
+  background: white;
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  box-shadow: 0 2px 12px #55436d12;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.logo { font-size: 25px; font-weight: bold; color: var(--dark); }
+.logo span { color: var(--purple); }
+nav { display: flex; gap: 18px; flex-wrap: wrap; }
+nav a {
+  text-decoration: none;
+  color: var(--dark);
+  font-size: 14px;
+  font-weight: bold;
+}
+nav a:hover { color: #A68BE0; }
+.hero {
+  padding: 75px 7%;
+  background: linear-gradient(120deg,#F6A5C7,#D9C9F5,#FFD782);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 35px;
+  flex-wrap: wrap;
+}
+.hero-text { max-width: 570px; }
+.hero h1 { font-size: clamp(36px,5vw,58px); margin: 10px 0; }
+.hero p { font-size: 18px; line-height: 1.7; }
+.hero-art { font-size: 105px; }
+.btn {
+  display: inline-block;
+  background: var(--dark);
+  color: white;
+  padding: 14px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+.btn:hover { opacity: .85; }
+section { padding: 65px 7%; }
+.section-title { text-align: center; margin-bottom: 35px; }
+.section-title h2 { font-size: 32px; }
+.section-title p { color: #81738e; }
+.levels {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
+}
+.level-btn {
+  border: 2px solid var(--purple);
+  background: white;
+  color: var(--dark);
+  padding: 12px 30px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.level-btn.active { background: var(--purple); color: white; }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 22px;
+}
+.card {
+  background: white;
+  padding: 28px;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px #55436d12;
+  transition: .2s;
+}
+.card:hover { transform: translateY(-5px); }
+.card .emoji { font-size: 42px; }
+.card h3 { font-size: 21px; }
+.card p { line-height: 1.6; color: #81738e; }
+.card a {
+  color: var(--dark);
+  font-weight: bold;
+  text-decoration: none;
+}
+.purple { border-top: 6px solid var(--purple); }
+.pink { border-top: 6px solid var(--pink); }
+.yellow { border-top: 6px solid var(--yellow); }
+.dark { border-top: 6px solid var(--dark); }
+.activity {
+  background: #F0E9FA;
+  border-radius: 25px;
+  padding: 35px;
+  max-width: 750px;
+  margin: auto;
+}
+.activity button {
+  margin: 8px 5px;
+  padding: 12px 20px;
+  border: 1px solid var(--purple);
+  background: white;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.activity button:hover { background: var(--purple); color: white; }
+#result { font-weight: bold; margin-top: 15px; }
+.assistant {
+  background: #55436D;
+  color: white;
+  border-radius: 25px;
+  padding: 35px;
+  max-width: 750px;
+  margin: auto;
+}
+.assistant input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  margin: 15px 0;
+}
+.assistant button {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 20px;
+  background: var(--yellow);
+  color: var(--dark);
+  cursor: pointer;
+  font-weight: bold;
+}
+#answer { margin-top: 18px; line-height: 1.6; }
+footer {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 30px;
+}
+@media(max-width:650px) {
+  header { justify-content: center; }
+  nav { justify-content: center; }
+  .hero { text-align: center; justify-content: center; }
+  .hero-art { font-size: 75px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Français<span>+</span> ✨</div>
+  <nav>
+    <a href="#accueil">Accueil</a>
+    <a href="#apprends">J'apprends</a>
+    <a href="#decouvre">Je découvre</a>
+    <a href="#pratique">Je pratique</a>
+    <a href="#evalue">Je m'évalue</a>
+    <a href="#assistant">Assistant IA</a>
+  </nav>
+</header>
+
+<div class="hero" id="accueil">
+  <div class="hero-text">
+    <p>🇫🇷 BIENVENUE DANS TON ESPACE FLE</p>
+    <h1>Apprendre le français devient un plaisir !</h1>
+    <p>
+      Découvre, apprends et pratique le français à ton rythme.
+      Des activités amusantes pour progresser chaque jour !
+    </p>
+    <a class="btn" href="#apprends">Je commence ! →</a>
+  </div>
+  <div class="hero-art">📚 🌸 🇫🇷</div>
+</div>
+
+<section id="apprends">
+  <div class="section-title">
+    <h2>📖 J'APPRENDS</h2>
+    <p>Je découvre les bases de la langue française.</p>
+  </div>
+  <div class="levels">
+    <button class="level-btn active" onclick="filterLevel('A1',this)">Niveau A1</button>
+    <button class="level-btn" onclick="filterLevel('A2',this)">Niveau A2</button>
+    <button class="level-btn" onclick="filterLevel('Tous',this)">Tous les niveaux</button>
+  </div>
+  <div class="cards" id="lessonCards">
+    <div class="card purple" data-level="A1">
+      <div class="emoji">🔤</div>
+      <h3>Grammaire</h3>
+      <p>Les articles, les pronoms, les adjectifs et les phrases simples.</p>
+      <a href="#pratique">Découvrir →</a>
+    </div>
+    <div class="card pink" data-level="A1">
+      <div class="emoji">✍️</div>
+      <h3>Conjugaison</h3>
+      <p>Les verbes être, avoir, aller et les verbes en -ER.</p>
+      <a href="#pratique">Découvrir →</a>
+    </div>
+    <div class="card yellow" data-level="A1">
+      <div class="emoji">📚</div>
+      <h3>Vocabulaire</h3>
+      <p>La famille, les loisirs, l'école et la vie quotidienne.</p>
+      <a href="#pratique">Découvrir →</a>
+    </div>
+    <div class="card dark" data-level="A2">
+      <div class="emoji">💬</div>
+      <h3>Expressions françaises</h3>
+      <p>Exprimer ses opinions, ses goûts et ses expériences.</p>
+      <a href="#pratique">Découvrir →</a>
+    </div>
+    <div class="card purple" data-level="A2">
+      <div class="emoji">⏳</div>
+      <h3>Les temps du passé</h3>
+      <p>Découvrir le passé composé et l'imparfait.</p>
+      <a href="#pratique">Découvrir →</a>
+    </div>
+  </div>
+</section>
+
+<section id="decouvre" style="background:#F4EDF9">
+  <div class="section-title">
+    <h2>🌍 JE DÉCOUVRE</h2>
+    <p>Le français, c'est aussi une culture riche et passionnante !</p>
+  </div>
+  <div class="cards">
+    <div class="card pink">
+      <div class="emoji">🥐</div>
+      <h3>Gastronomie</h3>
+      <p>Les spécialités françaises et les traditions culinaires.</p>
+    </div>
+    <div class="card purple">
+      <div class="emoji">🗼</div>
+      <h3>La France</h3>
+      <p>Les régions, les monuments et les villes françaises.</p>
+    </div>
+    <div class="card yellow">
+      <div class="emoji">🎵</div>
+      <h3>Musique</h3>
+      <p>Découvrir les artistes et les chansons francophones.</p>
+    </div>
+    <div class="card dark">
+      <div class="emoji">🌎</div>
+      <h3>Francophonie</h3>
+      <p>Explorer les pays et les cultures francophones.</p>
+    </div>
+  </div>
+</section>
+
+<section id="pratique">
+  <div class="section-title">
+    <h2>🎯 JE PRATIQUE</h2>
+    <p>Je développe mes quatre compétences en français.</p>
+  </div>
+  <div class="cards">
+    <div class="card purple">
+      <div class="emoji">🎧</div>
+      <h3>Compréhension orale</h3>
+      <p>J'écoute des dialogues et je réponds aux questions.</p>
+    </div>
+    <div class="card pink">
+      <div class="emoji">📖</div>
+      <h3>Compréhension écrite</h3>
+      <p>Je lis des textes et je comprends les informations.</p>
+    </div>
+    <div class="card yellow">
+      <div class="emoji">🗣️</div>
+      <h3>Production orale</h3>
+      <p>Je parle de moi, de mes goûts et de mes expériences.</p>
+    </div>
+    <div class="card dark">
+      <div class="emoji">📝</div>
+      <h3>Production écrite</h3>
+      <p>J'écris des messages, des descriptions et des textes.</p>
+    </div>
+  </div>
+</section>
+
+<section id="evalue" style="background:#F4EDF9">
+  <div class="section-title">
+    <h2>🏆 JE M'ÉVALUE</h2>
+    <p>Teste tes connaissances avec ce petit quiz !</p>
+  </div>
+  <div class="activity">
+    <h3>Question 1 : Comment dit-on "Good morning" en français ?</h3>
+    <button onclick="checkAnswer(this,false)">Bonne nuit</button>
+    <button onclick="checkAnswer(this,true)">Bonjour</button>
+    <button onclick="checkAnswer(this,false)">Au revoir</button>
+    <div id="result"></div>
+    <button onclick="nextQuestion()" style="display:none" id="next">Question suivante →</button>
+  </div>
+</section>
+
+<section id="assistant">
+  <div class="section-title">
+    <h2>🤖 MON ASSISTANT FRANÇAIS+</h2>
+    <p>Tu as une question ? Je suis là pour t'aider !</p>
+  </div>
+  <div class="assistant">
+    <h3>Bonjour ! Comment puis-je t'aider ? 🌸</h3>
+    <p>Écris une question sur le français :</p>
+    <input id="question" type="text" placeholder="Exemple : Quelle est la différence entre être et avoir ?">
+    <button onclick="askAssistant()">Envoyer ma question</button>
+    <div id="answer"></div>
+    <p style="font-size:12px;opacity:.7">Assistant de démonstration : ses réponses sont prédéfinies et ne constituent pas encore une véritable IA.</p>
+  </div>
+</section>
+
+<footer>
+  <h2>Français+ ✨</h2>
+  <p>Mon espace pour apprendre le français.</p>
+  <p>Apprendre • Découvrir • Pratiquer • Progresser</p>
+  <small>© 2026 Français+ | Site pédagogique FLE</small>
+</footer>
+
+<script>
+function filterLevel(level,button) {
+  document.querySelectorAll('.level-btn').forEach(b=>b.classList.remove('active'));
+  button.classList.add('active');
+  document.querySelectorAll('#lessonCards .card').forEach(card=>{
+    card.style.display = level==='Tous'||card.dataset.level===level?'block':'none';
+  });
+}
+
+let answered = false;
+function checkAnswer(button,correct) {
+  if(answered) return;
+  answered=true;
+  document.getElementById('result').textContent = correct
+    ? '🎉 Bravo ! C’est la bonne réponse !'
+    : '😊 Pas tout à fait. La bonne réponse est : Bonjour.';
+  document.getElementById('next').style.display='inline-block';
+}
+function nextQuestion() {
+  document.querySelector('#evalue .activity h3').textContent =
+    'Question 2 : Quel est le verbe être avec "je" ?';
+  const buttons=document.querySelectorAll('#evalue .activity button');
+  buttons[0].textContent='Je suis';
+  buttons[0].onclick=()=>checkAnswer(buttons[0],true);
+  buttons[1].textContent='Je es';
+  buttons[1].onclick=()=>checkAnswer(buttons[1],false);
+  buttons[2].textContent='Je est';
+  buttons[2].onclick=()=>checkAnswer(buttons[2],false);
+  buttons[0].style.display='inline-block';
+  buttons[1].style.display='inline-block';
+  buttons[2].style.display='inline-block';
+  document.getElementById('result').textContent='';
+  document.getElementById('next').style.display='none';
+  answered=false;
+}
+
+function askAssistant() {
+  const q=document.getElementById('question').value.toLowerCase();
+  const answer=document.getElementById('answer');
+  if(!q.trim()) {
+    answer.textContent='Écris d’abord une question ! 😊';
+    return;
+  }
+  if(q.includes('être')) {
+    answer.textContent='💡 Le verbe ÊTRE permet de présenter une personne ou de décrire son état. Exemple : Je suis élève. À toi de créer une phrase !';
+  } else if(q.includes('avoir')) {
+    answer.textContent='💡 Le verbe AVOIR exprime notamment la possession. Exemple : J’ai un livre. Peux-tu créer une autre phrase ?';
+  } else if(q.includes('bonjour')) {
+    answer.textContent='💡 Bonjour est une formule de salutation utilisée pendant la journée. Essaie aussi de découvrir "Bonsoir" !';
+  } else if(q.includes('passé composé')) {
+    answer.textContent='💡 Le passé composé sert à parler d’une action passée. Il se construit généralement avec AVOIR ou ÊTRE + participe passé. Exemple : J’ai mangé.';
+  } else if(q.includes('merci')) {
+    answer.textContent='💡 On dit "Merci" pour remercier quelqu’un. Pour répondre, tu peux dire "De rien" !';
+  } else {
+    answer.textContent='🌸 Bonne question ! Pour le moment, je suis un assistant de démonstration. Essaie de demander une explication sur être, avoir, bonjour ou le passé composé.';
+  }
+}
+</script>
+</body>
+</html>
